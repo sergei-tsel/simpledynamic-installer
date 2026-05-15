@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use SimpleDynamic\Installer\NewCommand;
+use Simpledynamic\Installer\NewCommand;
 use Symfony\Component\Console\Application;
 
 // Автозагрузка
@@ -14,7 +14,7 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     exit(1);
 }
 
-$application = new Application('SimpleDynamic Installer', '1.0');
+$application = new Application('Simpledynamic Installer', '1.0');
 $application->add(new NewCommand());
 $application->setDefaultCommand('new', true);
 $application->run();

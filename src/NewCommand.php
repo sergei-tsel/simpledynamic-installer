@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleDynamic\Installer;
+namespace Simpledynamic\Installer;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Attribute\AsCommand; // ← Новый атрибут
@@ -16,12 +16,10 @@ use Symfony\Component\Process\Process;
 
 #[AsCommand(
     name: 'new',
-    description: 'Создаёт новый проект на SimpleDynamic'
+    description: 'Создаёт новый проект на Simpledynamic'
 )]
 class NewCommand extends Command
 {
-    // УДАЛИТЬ: protected static $defaultName = 'new';
-
     protected function configure(): void
     {
         // Описание уже указано в атрибуте, но можно добавить аргументы/опции
