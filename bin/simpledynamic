@@ -14,10 +14,10 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
 }
 
 $command = new NewCommand();
+
 $application = new Application('Simpledynamic Installer', '1.0');
 $application->add($command);
 
 $command->getDefinition();
 
-$application->setDefaultCommand('new', true);
 $application->run();
