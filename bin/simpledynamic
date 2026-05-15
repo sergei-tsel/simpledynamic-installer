@@ -4,7 +4,6 @@
 use Simpledynamic\Installer\NewCommand;
 use Symfony\Component\Console\Application;
 
-// Автозагрузка
 if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     require_once __DIR__ . '/../vendor/autoload.php';
 } elseif (file_exists(__DIR__ . '/../../../autoload.php')) {
@@ -14,7 +13,10 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     exit(1);
 }
 
+$command = new NewCommand();
+$command->getDefinition();
+
 $application = new Application('Simpledynamic Installer', '1.0');
-$application->add(new NewCommand());
+$application->add($command);
 $application->setDefaultCommand('new', true);
 $application->run();

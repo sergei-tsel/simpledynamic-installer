@@ -3,7 +3,7 @@
 namespace Simpledynamic\Installer;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Attribute\AsCommand; // ← Новый атрибут
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -22,7 +22,6 @@ class NewCommand extends Command
 {
     protected function configure(): void
     {
-        // Описание уже указано в атрибуте, но можно добавить аргументы/опции
         $this->addArgument('name', InputArgument::OPTIONAL, 'Название проекта')
              ->addOption('dev', null, InputOption::VALUE_NONE, 'Установить с dev-зависимостями')
              ->addOption('git', null, InputOption::VALUE_NONE, 'Инициализировать репозиторий Git')
@@ -64,7 +63,7 @@ class NewCommand extends Command
 
         $output->writeln("🚀 <info>Создаём проект: $projectName</info>");
 
-        // Клонируем шаблон
+        // Клонирование шаблона
         $cloneCmd = "git clone https://github.com/sergei-tsel/simpledynamic \"$projectName\" --quiet";
         $process = Process::fromShellCommandline($cloneCmd);
         $process->setTimeout(300);
@@ -77,7 +76,7 @@ class NewCommand extends Command
 
         $fs->remove("$projectName/.git");
 
-        // Переходим в папку проекта
+        // Переход в папку проекта
         chdir($projectName);
 
         // Установка зависимостей
@@ -119,7 +118,7 @@ class NewCommand extends Command
             $gitCommit->run();
         }
 
-        // Готово!
+        // Вывод сообщения об успешном завершении
         $output->writeln("\n🎉 <info>Проект '$projectName' успешно создан!</info>");
         $output->writeln("");
         $output->writeln("Перейди в папку и запусти сервер:");
