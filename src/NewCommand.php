@@ -3,7 +3,6 @@
 namespace Simpledynamic\Installer;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,15 +13,13 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
-#[AsCommand(
-    name: 'new',
-    description: 'Создаёт новый проект на Simpledynamic'
-)]
 class NewCommand extends Command
 {
     protected function configure(): void
     {
-        $this->addArgument('name', InputArgument::OPTIONAL, 'Название проекта')
+        $this->setName('new')
+             ->setDescription('Создаёт новый проект на Simpledynamic')
+             ->addArgument('name', InputArgument::OPTIONAL, 'Название проекта')
              ->addOption('dev', null, InputOption::VALUE_NONE, 'Установить с dev-зависимостями')
              ->addOption('git', null, InputOption::VALUE_NONE, 'Инициализировать репозиторий Git')
              ->addOption('force', null, InputOption::VALUE_NONE, 'Перезаписать существующую папку');
