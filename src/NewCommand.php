@@ -210,8 +210,8 @@ class NewCommand extends Command
 
         $commands = [
             'git init --quiet',
-            'git add -A --quiet',
-            'git commit -m "Initial commit" --quiet',
+            'git add --all',
+            'git commit -m "init commit" --quiet',
         ];
 
         foreach ($commands as $cmd) {
