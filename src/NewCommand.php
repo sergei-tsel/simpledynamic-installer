@@ -151,7 +151,7 @@ class NewCommand extends Command
     {
         $output->writeln("📥 <info>Клонируем шаблон...</info>");
 
-        $cloneCmd = "git clone https://github.com/sergei-tsel/simpledynamic \"$projectName\" --quiet";
+        $cloneCmd = "git clone https://github.com/sergei-tsel/simpledynamic-tablemap \"$projectName\" --quiet";
         $process = Process::fromShellCommandline($cloneCmd);
         $process->setTimeout(300);
         $process->run();
